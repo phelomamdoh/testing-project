@@ -1,4 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Happiness Code
+
+A modern, responsive website built with Next.js, showcasing courses, testimonials, and leadership content. This project features smooth animations, responsive design, and optimized performance.
+
+## Features
+
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Smooth Animations**: GSAP animations for enhanced user experience
+- **Modern Stack**: Built with Next.js 15, React 19, and TypeScript
+- **Optimized Performance**: Fast loading and SEO-friendly
+- **Component-Based Architecture**: Modular and maintainable code structure
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: GSAP
+- **Deployment**: Vercel
 
 ## Getting Started
 
