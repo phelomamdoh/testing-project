@@ -18,20 +18,20 @@ export default function BooksSection() {
             <div key={index} className="fade-in group">
               <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Book cover */}
-                <div className="w-48 h-64 mx-auto mb-6 rounded-lg shadow-xl overflow-hidden">
+                <div className="mx-auto mb-6 inline-block rounded-lg shadow-xl overflow-hidden">
                   <Image
                     src={book.image}
                     alt={`${book.title} - Book Cover`}
                     width={192}
                     height={256}
-                    className="w-full h-full object-cover"
+                    className="max-w-48 max-h-64 w-auto h-auto object-contain"
                   />
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-neutral-900 mb-2">
                   {book.title}
                 </h3>
-                <p className="text-neutral-600 mb-6 text-lg">{book.subtitle}</p>
+                <p className="text-neutral-600 mb-6 text-md">{book.subtitle}</p>
 
                 <a
                   href={book.link}

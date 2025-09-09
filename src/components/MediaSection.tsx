@@ -81,21 +81,10 @@ export default function MediaSection() {
                 alt={logo.alt}
                 width={120}
                 height={60}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-full max-h-full object-contain transition-all duration-300"
               />
             </div>
           ))}
-        </div>
-
-        {/* Additional featured section */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-4 bg-white rounded-full px-8 py-4 shadow-lg">
-            <div className="w-3 h-3 bg-accent-500 rounded-full animate-pulse"></div>
-            <span className="text-neutral-700 font-medium">
-              As seen on major media outlets worldwide
-            </span>
-            <div className="w-3 h-3 bg-primary-500 rounded-full animate-pulse"></div>
-          </div>
         </div>
       </div>
     </section>

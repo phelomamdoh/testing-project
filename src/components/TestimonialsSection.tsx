@@ -45,29 +45,6 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
-
-        {/* Trust indicators */}
-        <div className="mt-16 text-center fade-in">
-          <div className="inline-flex items-center space-x-6 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-full px-8 py-4 shadow-lg">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                ✓
-              </div>
-              <span className="text-neutral-700 font-medium">
-                1000+ Lives Transformed
-              </span>
-            </div>
-            <div className="w-px h-6 bg-neutral-300"></div>
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                ★
-              </div>
-              <span className="text-neutral-700 font-medium">
-                Science-Based Methods
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -14,6 +14,18 @@ export default function LeadersSection() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const leadersRef = useRef<HTMLDivElement>(null);
 
+  // Function to split names for better display
+  const formatName = (name: string) => {
+    const words = name.split(" ");
+    if (words.length <= 2) return { line1: name, line2: "" };
+
+    const midPoint = Math.ceil(words.length / 2);
+    const line1 = words.slice(0, midPoint).join(" ");
+    const line2 = words.slice(midPoint).join(" ");
+
+    return { line1, line2 };
+  };
+
   useEffect(() => {
     if (sectionRef.current) {
       // Title animation
@@ -89,58 +101,55 @@ export default function LeadersSection() {
           >
             {content.leaders.title}
           </h2>
-          <p
-            ref={subtitleRef}
-            className="text-xl text-white/80 max-w-3xl mx-auto"
-          >
-            {content.leaders.subtitle}
-          </p>
         </div>
 
-        <div ref={leadersRef} className="grid md:grid-cols-3 gap-8">
-          {content.leaders.items.map((leader, index) => (
-            <div key={index} className="group">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                {/* Leader photo */}
-                <div className="mb-6 overflow-hidden rounded-xl">
-                  <Image
-                    src={leader.image}
-                    alt={leader.name}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+        <div
+          ref={leadersRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+          {content.leaders.items.map((leader, index) => {
+            const formattedName = formatName(leader.name);
+            return (
+              <div key={index} className="group">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
+                  {/* Leader photo - responsive sizing */}
+                  <div className="mb-4 overflow-hidden rounded-xl flex-shrink-0">
+                    <div className="relative aspect-[4/3] w-full">
+                      <Image
+                        src={leader.image}
+                        alt={leader.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-contain group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
 
-                {/* Leader info */}
-                <div className="text-center">
-                  <h3 className="text-2xl font-serif font-bold mb-2">
-                    {leader.name}
-                  </h3>
-                  <p className="text-accent-300 font-semibold mb-3 text-lg">
-                    {leader.title}
-                  </p>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    {leader.description}
-                  </p>
-                </div>
+                  {/* Leader info - flexible content area */}
+                  <div className="text-center flex-grow flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold mb-2 leading-tight">
+                        <div>{formattedName.line1}</div>
+                        {formattedName.line2 && (
+                          <div className="mt-1">{formattedName.line2}</div>
+                        )}
+                      </h3>
 
-                {/* Decorative element */}
-                <div className="flex justify-center mt-6">
-                  <div className="w-12 h-1 bg-gradient-to-r from-accent-400 to-accent-600 rounded-full"></div>
+                      {/* Leader title/position */}
+                      <p className="text-sm sm:text-base text-white/80 mb-3">
+                        {leader.title}
+                      </p>
+                    </div>
+
+                    {/* Decorative element */}
+                    <div className="flex justify-center mt-4">
+                      <div className="w-12 h-1 bg-gradient-to-r from-accent-400 to-accent-600 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Achievement highlight */}
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-accent-500/20 border border-accent-300/30 rounded-full px-8 py-4">
-            <span className="text-accent-200 font-bold text-lg">
-              ✨ Honored by multiple heads of state worldwide
-            </span>
-          </div>
+            );
+          })}
         </div>
       </div>
 

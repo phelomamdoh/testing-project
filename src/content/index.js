@@ -15,12 +15,38 @@ export const content = {
   about: {
     title: "Meet Sherife AbdelMessih",
     bio: [
-      "MIT scientist, author, and entrepreneur.",
-      "Authored 2 personal growth books that reached bestseller status in the US, Canada, UK, France and Australia",
       "Regular speaker throughout his career at industry events hosted by Bloomberg, Financial Times, World Bank, and Harvard Business School.",
       "Honored by several heads of state, including two American presidents.",
-      "Advises public figures including world champions, billionaires, and celebrities.",
-      "Known for his transformative thinking, authenticity and compelling storytelling, Sherife has touched the lives of millions of people around the world",
+    ],
+    achievements: [
+      {
+        title: "MIT Scientist & Author",
+        description:
+          "Advanced degree from world's top university with 2 bestselling books",
+        icon: "graduation",
+        highlight: true,
+      },
+      {
+        title: "Global Speaker",
+        description:
+          "Regular speaker at industry events hosted by Bloomberg, Financial Times, World Bank, and Harvard Business School",
+        icon: "speaker",
+        highlight: true,
+      },
+      {
+        title: "Presidential Recognition",
+        description:
+          "Honored by several heads of state, including two American presidents",
+        icon: "award",
+        highlight: true,
+      },
+      {
+        title: "Trusted Advisor",
+        description:
+          "Advises public figures including world champions, billionaires, and celebrities",
+        icon: "advisor",
+        highlight: true,
+      },
     ],
   },
 
@@ -40,8 +66,6 @@ export const content = {
   // Leaders Section
   leaders: {
     title: "Recognized by World Leaders",
-    subtitle:
-      "Honored and acknowledged by heads of state and global influencers",
     items: [
       {
         name: "President Bill Clinton",
@@ -69,17 +93,17 @@ export const content = {
 
   // Books Section
   books: {
-    title: "Published Works",
+    title: "Published Books",
     items: [
       {
         title: "Rewrite Your Destiny",
-        subtitle: "Everything Transformation",
+        subtitle: "The Power within Us to Change Everything",
         link: "https://www.amazon.com/Rewrite-Your-Destiny-Everything-Transformation/dp/B0D5VHGG5V/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=&tag=wellbeing062-20",
         image: "/book1.jpg",
       },
       {
         title: "Super Vision",
-        subtitle: "Eye-Opening Approach to Getting",
+        subtitle: "An Eye-Opening Approach to Getting Unstuck",
         link: "https://www.amazon.com/Super-Vision-Eye-Opening-Approach-Getting/dp/B0BZB7XFJ7/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=&tag=wellbeing062-20",
         image: "/book2.jpg",
       },
