@@ -134,11 +134,6 @@ export default function LeadersSection() {
                           <div className="mt-1">{formattedName.line2}</div>
                         )}
                       </h3>
-
-                      {/* Leader title/position */}
-                      <p className="text-sm sm:text-base text-white/80 mb-3">
-                        {leader.title}
-                      </p>
                     </div>
 
                     {/* Decorative element */}

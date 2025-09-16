@@ -1,6 +1,35 @@
 // Centralized content for The Happiness Code landing page
 export const content = {
-  // Hero Section
+  // Home Page Hero Section
+  homeHero: {
+    authorName: "Sherife AbdelMessih",
+    authorImage: "/sherif.png",
+    authorTitle: "MIT Scientist & Bestselling Author",
+    authorCredentials: [
+      "Bestselling Author of 2 Personal Growth Books",
+      "MIT Brain Science Researcher",
+      "Speaker at Harvard, Bloomberg & World Bank",
+      "Honored by Two American Presidents",
+    ],
+    title: "Masterclass",
+    subtitle: "Transform Your Life",
+    description:
+      "Join the exclusive live masterclass that unlocks the science behind sustainable happiness",
+    sessionDetails: "8 Hours of Live Online Sessions",
+    catchphrase: "Happiness is the world's most sought after drug",
+    catchphraseSubtitle:
+      "Everybody is either looking for it or wants more of it",
+    features: [
+      "Science-based happiness frameworks",
+      "Direct interaction with Sherife",
+      "Lifetime access to recordings",
+      "Private community access",
+    ],
+    ctaText: "The Happiness Code",
+    ctaLink: "/happinesscode",
+  },
+
+  // Happiness Code Page Hero Section (Original)
   hero: {
     title: "The Happiness Code",
     subtitle: "By Bestselling author Sherife AbdelMessih",
@@ -20,17 +49,24 @@ export const content = {
     ],
     achievements: [
       {
-        title: "MIT Scientist & Author",
+        title: "Bestselling Author",
         description:
-          "Advanced degree from world's top university with 2 bestselling books",
-        icon: "graduation",
+          "2 personal growth books that reached bestseller status in the US, Canada, UK, France and Australia",
+        icon: "book",
+        highlight: true,
+      },
+      {
+        title: "MIT Scientist",
+        description:
+          "Leads many brain science research initiatives focused on emotions and the science of happiness",
+        icon: "brain",
         highlight: true,
       },
       {
         title: "Global Speaker",
         description:
-          "Regular speaker at industry events hosted by Bloomberg, Financial Times, World Bank, and Harvard Business School",
-        icon: "speaker",
+          "Keynote speaker at industry events hosted by Bloomberg, Financial Times, World Bank, and Harvard Business School",
+        icon: "microphone",
         highlight: true,
       },
       {
@@ -65,28 +101,19 @@ export const content = {
 
   // Leaders Section
   leaders: {
-    title: "Recognized by World Leaders",
+    title: "Honored by World Leaders",
     items: [
       {
         name: "President Bill Clinton",
-        title: "42nd President of the United States",
         image: "/leader-01.jpg",
-        description:
-          "Recognized for outstanding contributions to personal development and leadership",
       },
       {
         name: "Business Tycoon Naguib Sawiris",
-        title: "Egyptian Billionaire & Business Leader",
         image: "/leader-02.jpg",
-        description:
-          "Acknowledged for innovative approaches to business psychology and success",
       },
       {
         name: "French Prime Minister Manuel Valls",
-        title: "Former Prime Minister of France",
         image: "/leader-03.jpg",
-        description:
-          "Honored for contributions to international leadership and personal transformation",
       },
     ],
   },
@@ -162,6 +189,26 @@ export const content = {
     ],
   },
 
+  // Pricing Section
+  pricing: {
+    title: "Special Launch Offer",
+    subtitle: "Transform your life with exclusive access to The Happiness Code",
+    originalPrice: "50,000",
+    discountedPrice: "5,000",
+    currency: "EGP",
+    period: "per month",
+    paymentNote: "paid for three months",
+    features: [
+      "8 hours of live online sessions with Sherife",
+      "Exclusive access to science-based happiness frameworks",
+      "Direct interaction and Q&A sessions",
+      "Lifetime access to session recordings",
+      "Private community access with fellow participants",
+    ],
+    ctaText: "Secure Your Spot Now",
+    discount: "90% OFF",
+  },
+
   // Registration Form
   registration: {
     title: "Register Now",
@@ -198,6 +245,29 @@ export const content = {
   footer: {
     copyright: "Sherife AbdelMessih. All rights reserved.",
     website: "sherifeabdelmessih.com",
+    contact: "s@sherifeabdelmessih.com",
+    socialLinks: [
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/sherife-abdelmessih",
+        icon: "linkedin",
+      },
+      {
+        name: "Facebook",
+        url: "https://mobile.facebook.com/shico8/",
+        icon: "facebook",
+      },
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/mr.wellbeingmindset?igsh=dno2cnFoYmgwdm5m",
+        icon: "instagram",
+      },
+      {
+        name: "Twitter",
+        url: "https://x.com/sherife8",
+        icon: "twitter",
+      },
+    ],
   },
 
   // SEO Meta

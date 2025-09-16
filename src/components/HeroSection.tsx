@@ -57,7 +57,7 @@ export default function HeroSection() {
 
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight"
         >
           {content.hero.title}
         </h1>
@@ -88,7 +88,7 @@ export default function HeroSection() {
               </svg>
             </div>
             <div className="bg-gradient-to-r from-accent-300 to-yellow-300 bg-clip-text text-transparent">
-              <p className="text-2xl md:text-3xl font-bold tracking-wide">
+              <p className="text-xl md:text-3xl font-bold tracking-wide">
                 {content.hero.description}
               </p>
             </div>
@@ -131,10 +131,18 @@ export default function HeroSection() {
         <div className="fade-in mb-16">
           <button
             onClick={() => {
-              const registrationSection = document.querySelector(
-                "#registration-section"
-              );
-              registrationSection?.scrollIntoView({ behavior: "smooth" });
+              const pricingSection = document.querySelector("#pricing-section");
+              if (pricingSection) {
+                const elementPosition =
+                  pricingSection.getBoundingClientRect().top;
+                const offsetPosition =
+                  elementPosition + window.pageYOffset + 300;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+              }
             }}
             className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-accent-950 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-xl shadow-xl cursor-pointer"
           >

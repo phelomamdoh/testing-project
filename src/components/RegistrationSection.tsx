@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { content } from "@/content";
+import { registerForHappinessCode } from "@/app/actions/registration";
 
 export default function RegistrationSection() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export default function RegistrationSection() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,12 +25,29 @@ export default function RegistrationSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Create FormData from the form
+      const form = e.target as HTMLFormElement;
+      const formDataToSubmit = new FormData(form);
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      // Call the server action
+      const result = await registerForHappinessCode(formDataToSubmit);
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMessage(
+          result.message || "Registration failed. Please try again."
+        );
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -94,6 +113,14 @@ export default function RegistrationSection() {
             onSubmit={handleSubmit}
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
           >
+            {errorMessage && (
+              <div className="mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-xl">
+                <p className="text-red-100 text-center font-semibold">
+                  {errorMessage}
+                </p>
+              </div>
+            )}
+
             <div className="grid md:grid-cols-1 gap-6">
               {Object.entries(content.registration.fields).map(
                 ([key, field]) => (

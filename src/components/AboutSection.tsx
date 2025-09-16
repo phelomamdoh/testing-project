@@ -20,7 +20,7 @@ export default function AboutSection() {
     const iconProps = "w-6 h-6";
 
     switch (iconType) {
-      case "graduation":
+      case "book":
         return (
           <svg
             className={iconProps}
@@ -32,11 +32,11 @@ export default function AboutSection() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
             />
           </svg>
         );
-      case "speaker":
+      case "brain":
         return (
           <svg
             className={iconProps}
@@ -48,7 +48,65 @@ export default function AboutSection() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              d="M12 18V5"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17.997 5.125a4 4 0 0 1 2.526 5.77"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M18 18a4 4 0 0 0 2-7.464"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18a4 4 0 0 1-2-7.464"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6.003 5.125a4 4 0 0 0-2.526 5.77"
+            />
+          </svg>
+        );
+      case "microphone":
+        return (
+          <svg
+            className={iconProps}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
             />
           </svg>
         );
@@ -116,6 +174,12 @@ export default function AboutSection() {
         border: "border-2 border-green-200 hover:border-green-300",
         iconBg: "bg-green-100 text-green-600 group-hover:bg-green-200",
         textColor: "text-green-900",
+      },
+      {
+        bg: "bg-gradient-to-br from-rose-50 to-pink-50",
+        border: "border-2 border-rose-200 hover:border-rose-300",
+        iconBg: "bg-rose-100 text-rose-600 group-hover:bg-rose-200",
+        textColor: "text-rose-900",
       },
     ];
 
@@ -234,7 +298,7 @@ export default function AboutSection() {
                 ref={(el) => {
                   if (el) bioItemsRef.current[index] = el;
                 }}
-                className={`group p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 ${colorTheme.bg} ${colorTheme.border}`}
+                className={`group p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 ${colorTheme.bg} ${colorTheme.border}`}
               >
                 <div className="flex items-start space-x-4">
                   <div
