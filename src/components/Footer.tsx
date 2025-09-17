@@ -34,11 +34,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-serif font-bold mb-2">
-              The Happiness Code
+              Sherife AbdelMessih
             </h3>
-            <p className="text-neutral-400">
-              Transforming lives through science-based methods
-            </p>
+            <p className="text-neutral-400">2x Bestselling Author</p>
           </div>
 
           {/* Social Links */}

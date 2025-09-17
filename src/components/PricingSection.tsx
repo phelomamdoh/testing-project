@@ -228,10 +228,10 @@ export default function PricingSection() {
                 </span>
               </div>
               <div className="mb-2">
-                <span className="text-5xl font-bold text-primary-700">
+                <span className="sm:text-5xl text-4xl font-bold text-primary-700">
                   {content.pricing.discountedPrice} {content.pricing.currency}
                 </span>
-                <span className="text-xl text-neutral-600 ml-2">
+                <span className="text-lg sm:text-xl text-neutral-600 ml-2">
                   {content.pricing.period}
                 </span>
               </div>
@@ -272,7 +272,7 @@ export default function PricingSection() {
             <div className="p-8 pt-0">
               <button
                 onClick={scrollToRegistration}
-                className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-lg group relative overflow-hidden cursor-pointer"
+                className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base sm:text-lg group relative overflow-hidden cursor-pointer"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   {content.pricing.ctaText}
