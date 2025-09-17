@@ -80,6 +80,7 @@ const getUserConfirmationEmail = (data: RegistrationData) => {
               <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 20px;">
                 <h4 style="color: #92400e; margin: 0 0 10px 0;">Payment Instructions</h4>
                 <p style="color: #78350f; margin: 0;">Please transfer the program fees to Loay over Instapay:</p>
+                <p style="color: #78350f; margin: 10px 0; font-weight: bold; font-size: 18px; background-color: #fed7aa; padding: 8px; border-radius: 4px;">Instapay Number: 01550455588</p>
                 <p style="color: #78350f; margin: 5px 0 0 0; font-weight: bold;">5,000 EGP per month over 3 months</p>
                 <p style="color: #78350f; margin: 5px 0 0 0;">The first monthly payment is due now.</p>
               </div>

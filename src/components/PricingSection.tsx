@@ -229,10 +229,10 @@ export default function PricingSection() {
               </div>
               <div className="mb-2">
                 <span className="text-5xl font-bold text-primary-700">
-                  {content.pricing.discountedPrice}
+                  {content.pricing.discountedPrice} {content.pricing.currency}
                 </span>
                 <span className="text-xl text-neutral-600 ml-2">
-                  {content.pricing.currency}
+                  {content.pricing.period}
                 </span>
               </div>
               <p className="text-sm text-accent-600 font-semibold bg-accent-50 px-3 py-1 rounded-full inline-block">
@@ -309,7 +309,7 @@ export default function PricingSection() {
                     d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                   />
                 </svg>
-                Secure registration • Money-back guarantee
+                Secure registration
               </div>
             </div>
           </div>
@@ -318,9 +318,7 @@ export default function PricingSection() {
         {/* Additional Info */}
         <div className="text-center mt-12">
           <p className="text-neutral-600 max-w-2xl mx-auto">
-            Limited time offer. Join hundreds of satisfied participants who have
-            transformed their lives with scientifically-proven happiness
-            techniques.
+            Limited time offer
           </p>
         </div>
       </div>

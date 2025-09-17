@@ -37,7 +37,7 @@ export default function CourseContentSection() {
         {/* Call to action */}
         <div className="text-center mt-16 fade-in">
           <div className="inline-block bg-accent-500 text-accent-950 px-8 py-4 rounded-full font-bold text-lg transform hover:scale-105 transition-transform duration-300 shadow-xl">
-            8 Hours of Transformative Content
+            8 Hours of transformational Content
           </div>
         </div>
       </div>

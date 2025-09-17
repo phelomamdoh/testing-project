@@ -4,27 +4,7 @@ export const content = {
   homeHero: {
     authorName: "Sherife AbdelMessih",
     authorImage: "/sherif.png",
-    authorTitle: "MIT Scientist & Bestselling Author",
-    authorCredentials: [
-      "Bestselling Author of 2 Personal Growth Books",
-      "MIT Brain Science Researcher",
-      "Speaker at Harvard, Bloomberg & World Bank",
-      "Honored by Two American Presidents",
-    ],
-    title: "Masterclass",
-    subtitle: "Transform Your Life",
-    description:
-      "Join the exclusive live masterclass that unlocks the science behind sustainable happiness",
-    sessionDetails: "8 Hours of Live Online Sessions",
-    catchphrase: "Happiness is the world's most sought after drug",
-    catchphraseSubtitle:
-      "Everybody is either looking for it or wants more of it",
-    features: [
-      "Science-based happiness frameworks",
-      "Direct interaction with Sherife",
-      "Lifetime access to recordings",
-      "Private community access",
-    ],
+    authorTitle: "2x Bestselling Author",
     ctaText: "The Happiness Code",
     ctaLink: "/happinesscode",
   },
@@ -193,7 +173,7 @@ export const content = {
   pricing: {
     title: "Special Launch Offer",
     subtitle: "Transform your life with exclusive access to The Happiness Code",
-    originalPrice: "50,000",
+    originalPrice: "20,000",
     discountedPrice: "5,000",
     currency: "EGP",
     period: "per month",
@@ -206,7 +186,7 @@ export const content = {
       "Private community access with fellow participants",
     ],
     ctaText: "Secure Your Spot Now",
-    discount: "90% OFF",
+    discount: "75% OFF",
   },
 
   // Registration Form
@@ -236,8 +216,9 @@ export const content = {
     successMessage: {
       title: "Thank you for registering!",
       content: "Please transfer the program fees to Loay over Instapay.",
+      instapay: "01550455588",
       paymentDetails:
-        "5,000 EGP per month over 3 months. The first monthly payment is due now.",
+        "Only 5,000 EGP per month for 3 months. The first monthly payment is due now.",
     },
   },
 
