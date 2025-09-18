@@ -123,7 +123,7 @@ export const content = {
     modules: [
       "Understanding the Science of Emotions and how are emotions made",
       "How can we be happy during our hardest times?",
-      "Universal, thieves of joy that we let into our lives every day",
+      "Universal thieves of joy that we let into our lives every day",
       "Understanding Energy and how it affects us",
       "How to nourish our mind and our body",
       "How to eliminate anxiety",

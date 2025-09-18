@@ -36,7 +36,9 @@ export default function Footer() {
             <h3 className="text-2xl font-serif font-bold mb-2">
               Sherife AbdelMessih
             </h3>
-            <p className="text-neutral-400">2x Bestselling Author</p>
+            <p className="text-neutral-400">
+              Transforming lives through science-based methods
+            </p>
           </div>
 
           {/* Social Links */}
