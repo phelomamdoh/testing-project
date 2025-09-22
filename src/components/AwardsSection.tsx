@@ -75,15 +75,6 @@ const AwardsSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottom Decorative Element */}
-        <div className="mt-16 flex justify-center">
-          <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
-          </div>
-        </div>
       </div>
     </section>
   );
