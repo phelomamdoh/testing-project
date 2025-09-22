@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: content.meta.title,
   description: content.meta.description,
   keywords: content.meta.keywords,
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon-180x180.svg",
+  },
   openGraph: {
     title: content.meta.title,
     description: content.meta.description,

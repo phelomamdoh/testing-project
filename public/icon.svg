@@ -1,0 +1,48 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#facc15"/>
+      <stop offset="100%" style="stop-color:#eab308"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="16" cy="16" r="15" fill="url(#primaryGradient)" stroke="none"/>
+  
+  <!-- Brain/Mind symbol (representing psychology and science) -->
+  <path d="M12 8c-2.2 0-4 1.8-4 4 0 1.1.4 2.1 1.1 2.8-.4.6-.6 1.3-.6 2.2 0 2.2 1.8 4 4 4h8c2.2 0 4-1.8 4-4 0-.9-.3-1.6-.6-2.2.7-.7 1.1-1.7 1.1-2.8 0-2.2-1.8-4-4-4-1.4 0-2.6.7-3.3 1.8-.7-1.1-1.9-1.8-3.3-1.8z" 
+        fill="url(#accentGradient)" 
+        filter="url(#glow)"
+        opacity="0.9"/>
+  
+  <!-- Happy face elements -->
+  <!-- Left eye -->
+  <circle cx="13" cy="13" r="1.5" fill="#1e3a8a"/>
+  <!-- Right eye -->  
+  <circle cx="19" cy="13" r="1.5" fill="#1e3a8a"/>
+  
+  <!-- Smile -->
+  <path d="M12 17c1.5 2 3.5 2 4 2s2.5 0 4-2" 
+        stroke="#1e3a8a" 
+        stroke-width="1.5" 
+        stroke-linecap="round" 
+        fill="none"/>
+        
+  <!-- Subtle sparkle/happiness indicators -->
+  <circle cx="9" cy="9" r="0.8" fill="#facc15" opacity="0.8"/>
+  <circle cx="23" cy="11" r="0.6" fill="#facc15" opacity="0.6"/>
+  <circle cx="24" cy="20" r="0.7" fill="#facc15" opacity="0.7"/>
+</svg>

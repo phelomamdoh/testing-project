@@ -1,0 +1,49 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#facc15"/>
+      <stop offset="100%" style="stop-color:#eab308"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="90" cy="90" r="85" fill="url(#primaryGradient)" stroke="none"/>
+  
+  <!-- Brain/Mind symbol (representing psychology and science) -->
+  <path d="M65 45c-12.4 0-22.5 10.1-22.5 22.5 0 6.2 2.3 11.8 6.2 15.8-2.2 3.4-3.4 7.3-3.4 12.4 0 12.4 10.1 22.5 22.5 22.5h45c12.4 0 22.5-10.1 22.5-22.5 0-5.1-1.7-9-3.4-12.4 3.9-4 6.2-9.6 6.2-15.8 0-12.4-10.1-22.5-22.5-22.5-7.9 0-14.6 3.9-18.6 10.1-4-6.2-10.7-10.1-18.6-10.1z" 
+        fill="url(#accentGradient)" 
+        filter="url(#glow)"
+        opacity="0.9"/>
+  
+  <!-- Happy face elements -->
+  <!-- Left eye -->
+  <circle cx="73" cy="73" r="8" fill="#1e3a8a"/>
+  <!-- Right eye -->  
+  <circle cx="107" cy="73" r="8" fill="#1e3a8a"/>
+  
+  <!-- Smile -->
+  <path d="M65 95c8.4 11.2 19.6 11.2 22.5 11.2s14.1 0 22.5-11.2" 
+        stroke="#1e3a8a" 
+        stroke-width="6" 
+        stroke-linecap="round" 
+        fill="none"/>
+        
+  <!-- Subtle sparkle/happiness indicators -->
+  <circle cx="50" cy="50" r="4" fill="#facc15" opacity="0.8"/>
+  <circle cx="130" cy="60" r="3" fill="#facc15" opacity="0.6"/>
+  <circle cx="135" cy="115" r="3.5" fill="#facc15" opacity="0.7"/>
+  <circle cx="45" cy="130" r="2.5" fill="#facc15" opacity="0.5"/>
+</svg>
