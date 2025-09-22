@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import Footer from "@/components/Footer";
+import AwardsSection from "@/components/AwardsSection";
+import MasterClassesSection from "@/components/MasterClassesSection";
 import { content } from "@/content";
 
 export default function Home() {
@@ -159,6 +161,12 @@ export default function Home() {
           </span>
         </div>
       </section>
+
+      {/* Awards Section */}
+      <AwardsSection />
+
+      {/* Master Classes Section */}
+      <MasterClassesSection />
 
       {/* Books Section */}
       <section className="py-20 bg-white">

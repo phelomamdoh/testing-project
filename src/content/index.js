@@ -66,6 +66,54 @@ export const content = {
     ],
   },
 
+  // Awards Section
+  awards: {
+    title: "Awards",
+    items: [
+      {
+        title: "Top 10 Influential People in the Middle East",
+        organization: "Arabian Business Magazine",
+        location: "Dubai",
+        icon: "trophy",
+      },
+      {
+        title: "Top 10 Economic Leaders in Africa",
+        organization: "L'Institut Choiseul",
+        location: "Paris",
+        icon: "medal",
+      },
+      {
+        title: "Top 10 Social Entrepreneurs in Egypt",
+        organization: "Yahoo!",
+        location: "New York",
+        icon: "award",
+      },
+    ],
+  },
+
+  // Master Classes Section
+  masterClasses: {
+    title: "Masterclasses",
+    subtitle:
+      "Exclusive live training programs designed to transform your mindset and unlock your potential",
+    items: [
+      {
+        title: "The Happiness Code",
+        subtitle: "You Can’t Buy Happiness — But You Can Learn the Code",
+        description:
+          "Discover the science-backed secrets to sustained happiness and emotional well-being. Learn from bestselling author Sherife AbdelMessih in this transformative live masterclass series.",
+        icon: "happiness",
+      },
+      {
+        title: "The S8 Method",
+        subtitle: "8 Secrets of Sustained Long Term Success",
+        description:
+          "Find out what billionaires know that millionaires don't. Unlock the elite mindset and strategies that separate the ultra-successful from the rest.",
+        icon: "success",
+      },
+    ],
+  },
+
   // Media Section
   media: {
     title: "Featured on",
