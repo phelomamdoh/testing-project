@@ -123,6 +123,41 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-20 h-20 bg-accent-300/20 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-300/20 rounded-full blur-xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-20 w-16 h-16 bg-primary-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
+
+        {/* Scroll down indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <div className="flex flex-col">
+            <svg
+              className="w-6 h-6 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 10l5 5 5-5"
+              />
+            </svg>
+            <svg
+              className="w-6 h-6 text-accent-300 -mt-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 10l5 5 5-5"
+              />
+            </svg>
+          </div>
+          <span className="text-accent-300 text-sm mt-2 font-medium">
+            Scroll Down
+          </span>
+        </div>
       </section>
 
       {/* Books Section */}
