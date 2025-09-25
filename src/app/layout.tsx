@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { content } from "@/content";
+import { sharedContent } from "@/content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: content.meta.title,
-  description: content.meta.description,
-  keywords: content.meta.keywords,
+  title:
+    "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+  description:
+    "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
+  keywords:
+    "Sherife AbdelMessih, happiness, success, personal development, psychology, masterclass, life transformation, bestselling author",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -25,15 +28,19 @@ export const metadata: Metadata = {
     apple: "/apple-icon-180x180.svg",
   },
   openGraph: {
-    title: content.meta.title,
-    description: content.meta.description,
+    title:
+      "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+    description:
+      "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: content.meta.title,
-    description: content.meta.description,
+    title:
+      "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+    description:
+      "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
   },
 };
 
