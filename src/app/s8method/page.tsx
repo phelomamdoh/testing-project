@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { happinessCodeContent } from "@/content";
+import { s8MethodContent } from "@/content";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import MediaSection from "@/components/MediaSection";
@@ -18,7 +18,7 @@ import Footer from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HappinessCode() {
+export default function S8Method() {
   useEffect(() => {
     // Initialize GSAP animations
     gsap.fromTo(
@@ -40,22 +40,16 @@ export default function HappinessCode() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      <HeroSection heroContent={happinessCodeContent.hero} />
+      <HeroSection heroContent={s8MethodContent.hero} />
       <AboutSection />
       <MediaSection />
       <LeadersSection />
       <BooksSection />
-      <CourseContentSection
-        courseContent={happinessCodeContent.courseContent}
-      />
+      <CourseContentSection courseContent={s8MethodContent.courseContent} />
       <MITTestimonialSection />
-      <TestimonialsSection
-        testimonialsContent={happinessCodeContent.testimonials}
-      />
-      <PricingSection pricingContent={happinessCodeContent.pricing} />
-      <RegistrationSection
-        registrationContent={happinessCodeContent.registration}
-      />
+      <TestimonialsSection testimonialsContent={s8MethodContent.testimonials} />
+      <PricingSection pricingContent={s8MethodContent.pricing} />
+      <RegistrationSection registrationContent={s8MethodContent.registration} />
       <Footer />
     </main>
   );

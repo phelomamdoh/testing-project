@@ -1,10 +1,40 @@
 "use client";
 
 import { useState } from "react";
-import { content } from "@/content";
-import { registerForHappinessCode } from "@/app/actions/registration";
+import { registerForHappinessCode } from "@/app/actions/happiness-code-registration";
+import { registerForS8Method } from "@/app/actions/s8-method-registration";
 
-export default function RegistrationSection() {
+interface FormField {
+  label: string;
+  placeholder: string;
+  type: string;
+  required: boolean;
+}
+
+interface SuccessMessage {
+  title: string;
+  content?: string;
+  instapay?: string;
+  paymentDetails?: string;
+}
+
+interface RegistrationContent {
+  courseName: string;
+  title: string;
+  fields: {
+    [key: string]: FormField;
+  };
+  submitButton: string;
+  successMessage: SuccessMessage;
+}
+
+interface RegistrationSectionProps {
+  registrationContent: RegistrationContent;
+}
+
+export default function RegistrationSection({
+  registrationContent,
+}: RegistrationSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -32,8 +62,11 @@ export default function RegistrationSection() {
       const form = e.target as HTMLFormElement;
       const formDataToSubmit = new FormData(form);
 
-      // Call the server action
-      const result = await registerForHappinessCode(formDataToSubmit);
+      // Call the appropriate server action based on course name
+      const result =
+        registrationContent.courseName === "happinesscode"
+          ? await registerForHappinessCode(formDataToSubmit)
+          : await registerForS8Method(formDataToSubmit);
 
       if (result.success) {
         setIsSubmitted(true);
@@ -72,19 +105,25 @@ export default function RegistrationSection() {
             </div>
 
             <h2 className="text-4xl font-serif font-bold mb-6">
-              {content.registration.successMessage.title}
+              {registrationContent.successMessage.title}
             </h2>
 
-            <p className="text-xl mb-6 leading-relaxed">
-              {content.registration.successMessage.content}
-            </p>
-            <p className="text-lg font-bold mb-6">
-              Instapay Number: {content.registration.successMessage.instapay}
-            </p>
+            {registrationContent.successMessage.content && (
+              <p className="text-xl mb-6 leading-relaxed">
+                {registrationContent.successMessage.content}
+              </p>
+            )}
+            {registrationContent.successMessage.instapay && (
+              <p className="text-lg font-bold mb-6">
+                {registrationContent.successMessage.instapay}
+              </p>
+            )}
 
-            <div className="bg-white/20 rounded-xl p-6 mb-6 text-lg font-semibold">
-              {content.registration.successMessage.paymentDetails}
-            </div>
+            {registrationContent.successMessage.paymentDetails && (
+              <div className="bg-white/20 rounded-xl p-6 mb-6 text-lg font-semibold">
+                {registrationContent.successMessage.paymentDetails}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -104,7 +143,7 @@ export default function RegistrationSection() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 fade-in">
-            {content.registration.title}
+            {registrationContent.title}
           </h2>
           <p className="text-xl text-white/80 fade-in">
             Secure your spot in this transformative journey
@@ -125,7 +164,7 @@ export default function RegistrationSection() {
             )}
 
             <div className="grid md:grid-cols-1 gap-6">
-              {Object.entries(content.registration.fields).map(
+              {Object.entries(registrationContent.fields).map(
                 ([key, field]) => (
                   <div key={key}>
                     <label
@@ -163,7 +202,7 @@ export default function RegistrationSection() {
                   <span>Registering...</span>
                 </div>
               ) : (
-                content.registration.submitButton
+                registrationContent.submitButton
               )}
             </button>
 

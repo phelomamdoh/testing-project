@@ -18,10 +18,10 @@ interface RegistrationResult {
 // Email configuration
 const createTransporter = () => {
   return nodemailer.createTransport({
-    service: "gmail", // You can change this to your preferred email service
+    service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_APP_PASSWORD, // Use App Password for Gmail
+      pass: process.env.EMAIL_APP_PASSWORD,
     },
   });
 };
@@ -50,7 +50,7 @@ const getGoogleSheetsClient = async () => {
   return sheets;
 };
 
-// User confirmation email template
+// User confirmation email template for Happiness Code
 const getUserConfirmationEmail = (data: RegistrationData) => {
   return {
     subject: "Welcome to The Happiness Code - Registration Confirmed!",
@@ -132,7 +132,7 @@ const getUserConfirmationEmail = (data: RegistrationData) => {
   };
 };
 
-// Admin notification email template
+// Admin notification email template for Happiness Code
 const getAdminNotificationEmail = (data: RegistrationData) => {
   return {
     subject: "New Registration - The Happiness Code",
@@ -207,14 +207,15 @@ const getAdminNotificationEmail = (data: RegistrationData) => {
   };
 };
 
-// Add data to Google Sheets
+// Add data to Google Sheets (Happiness Code)
 const addToGoogleSheets = async (data: RegistrationData) => {
   try {
     const sheets = await getGoogleSheetsClient();
-    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const spreadsheetId =
+      process.env.GOOGLE_SHEET_ID_HAPPINESS_CODE || process.env.GOOGLE_SHEET_ID;
 
     if (!spreadsheetId) {
-      throw new Error("Google Sheet ID not configured");
+      throw new Error("Google Sheet ID for Happiness Code not configured");
     }
 
     // Prepare the row data
@@ -232,7 +233,7 @@ const addToGoogleSheets = async (data: RegistrationData) => {
     // Append the data to the sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Sheet1!A:F", // Adjust range as needed
+      range: "Sheet1!A:F",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values,
@@ -266,13 +267,13 @@ const sendAdminNotification = async (data: RegistrationData) => {
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: process.env.ADMIN_EMAIL, // Admin email address
+    to: process.env.ADMIN_EMAIL,
     subject: emailContent.subject,
     html: emailContent.html,
   });
 };
 
-// Main registration action
+// Main registration action for Happiness Code
 export async function registerForHappinessCode(
   formData: FormData
 ): Promise<RegistrationResult> {

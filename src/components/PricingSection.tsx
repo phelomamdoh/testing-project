@@ -3,11 +3,31 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { content } from "@/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function PricingSection() {
+interface PricingContent {
+  title: string;
+  subtitle: string;
+  cardTitle: string;
+  cardSubtitle: string;
+  originalPrice: string;
+  discountedPrice: string;
+  currency: string;
+  period: string;
+  paymentNote: string;
+  features: string[];
+  ctaText: string;
+  discount: string;
+}
+
+interface PricingSectionProps {
+  pricingContent: PricingContent;
+}
+
+export default function PricingSection({
+  pricingContent,
+}: PricingSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const priceRef = useRef<HTMLDivElement>(null);
@@ -177,13 +197,13 @@ export default function PricingSection() {
             ref={titleRef}
             className="text-4xl md:text-5xl font-serif font-bold text-neutral-900 mb-4"
           >
-            {content.pricing.title}
+            {pricingContent.title}
           </h2>
           <p
             ref={subtitleRef}
             className="text-xl text-neutral-600 max-w-2xl mx-auto"
           >
-            {content.pricing.subtitle}
+            {pricingContent.subtitle}
           </p>
         </div>
 
@@ -195,7 +215,7 @@ export default function PricingSection() {
           >
             {/* Discount Badge */}
             <div className="absolute top-6 right-6 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform rotate-12">
-              {content.pricing.discount}
+              {pricingContent.discount}
             </div>
 
             {/* Card Header */}
@@ -215,35 +235,37 @@ export default function PricingSection() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-2">The Happiness Code</h3>
-              <p className="text-primary-100">Masterclass Series</p>
+              <h3 className="text-2xl font-bold mb-2">
+                {pricingContent.cardTitle}
+              </h3>
+              <p className="text-primary-100">{pricingContent.cardSubtitle}</p>
             </div>
 
             {/* Pricing */}
             <div ref={priceRef} className="p-8 text-center">
               <div className="mb-4">
                 <span className="text-2xl text-neutral-500 line-through">
-                  {content.pricing.originalPrice} {content.pricing.currency}{" "}
-                  {content.pricing.period}
+                  {pricingContent.originalPrice} {pricingContent.currency}{" "}
+                  {pricingContent.period}
                 </span>
               </div>
               <div className="mb-2">
                 <span className="sm:text-5xl text-4xl font-bold text-primary-700">
-                  {content.pricing.discountedPrice} {content.pricing.currency}
+                  {pricingContent.discountedPrice} {pricingContent.currency}
                 </span>
                 <span className="text-lg sm:text-xl text-neutral-600 ml-2">
-                  {content.pricing.period}
+                  {pricingContent.period}
                 </span>
               </div>
               <p className="text-sm text-accent-600 font-semibold bg-accent-50 px-3 py-1 rounded-full inline-block">
-                {content.pricing.paymentNote}
+                {pricingContent.paymentNote}
               </p>
             </div>
 
             {/* Features */}
             <div className="px-8 pb-8">
               <ul ref={featuresRef} className="space-y-4">
-                {content.pricing.features.map((feature, index) => (
+                {pricingContent.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
                     <div className="flex-shrink-0 w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                       <svg
@@ -275,7 +297,7 @@ export default function PricingSection() {
                 className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base sm:text-lg group relative overflow-hidden cursor-pointer"
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  {content.pricing.ctaText}
+                  {pricingContent.ctaText}
                   <svg
                     className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"

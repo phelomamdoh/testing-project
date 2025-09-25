@@ -7,25 +7,35 @@ import { gsap } from "gsap";
 import Footer from "@/components/Footer";
 import AwardsSection from "@/components/AwardsSection";
 import MasterClassesSection from "@/components/MasterClassesSection";
-import { content } from "@/content";
+import { content, homeContent } from "@/content";
 
 export default function Home() {
   const authorPhotoRef = useRef<HTMLDivElement>(null);
   const authorNameRef = useRef<HTMLDivElement>(null);
-  const ctaButtonRef = useRef<HTMLDivElement>(null);
+  const ctaButton1Ref = useRef<HTMLDivElement>(null);
+  const ctaButton2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const elements = [
       authorPhotoRef.current,
       authorNameRef.current,
-      ctaButtonRef.current,
+      ctaButton1Ref.current,
+      ctaButton2Ref.current,
     ].filter(Boolean);
 
     if (elements.length > 0) {
       const tl = gsap.timeline();
 
       // Set initial states
-      gsap.set(elements, { opacity: 0, y: 50 });
+      gsap.set([authorPhotoRef.current, authorNameRef.current], {
+        opacity: 0,
+        y: 50,
+      });
+      gsap.set([ctaButton1Ref.current, ctaButton2Ref.current], {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+      });
 
       // Animate elements in sequence
       tl.to(authorPhotoRef.current, {
@@ -45,14 +55,26 @@ export default function Home() {
           "-=0.4"
         )
         .to(
-          ctaButtonRef.current,
+          ctaButton1Ref.current,
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            ease: "back.out(1.7)",
+            scale: 1,
+            duration: 0.7,
+            ease: "back.out(1.4)",
           },
-          "-=0.2"
+          "-=0.1"
+        )
+        .to(
+          ctaButton2Ref.current,
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            ease: "back.out(1.4)",
+          },
+          "-=0.5"
         );
     }
   }, []);
@@ -76,8 +98,8 @@ export default function Home() {
               <div className="mb-8" ref={authorPhotoRef}>
                 <div className="w-48 h-48 mx-auto mb-6 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
                   <Image
-                    src={content.homeHero.authorImage}
-                    alt={content.homeHero.authorName}
+                    src={homeContent.hero.authorImage}
+                    alt={homeContent.hero.authorName}
                     width={192}
                     height={192}
                     className="w-full h-full object-cover"
@@ -89,33 +111,59 @@ export default function Home() {
               {/* Author Name & Title */}
               <div className="mb-8" ref={authorNameRef}>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2">
-                  {content.homeHero.authorName}
+                  {homeContent.hero.authorName}
                 </h2>
                 <p className="text-xl md:text-2xl text-accent-300 font-medium mb-4">
-                  {content.homeHero.authorTitle}
+                  {homeContent.hero.authorTitle}
                 </p>
               </div>
 
-              {/* CTA Button */}
-              <div ref={ctaButtonRef}>
-                <Link href={content.homeHero.ctaLink}>
-                  <button className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-accent-950 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-xl shadow-xl cursor-pointer">
-                    {content.homeHero.ctaText}
-                    <svg
-                      className="ml-2 w-6 h-6 inline-block"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 17l9.2-9.2M16.2 7.8v8.4m0-8.4H7.8"
-                      />
-                    </svg>
-                  </button>
-                </Link>
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-4 justify-center items-center max-w-sm mx-auto">
+                <div ref={ctaButton1Ref} className="w-full">
+                  <Link href={homeContent.hero.ctaLink} className="block">
+                    <button className="w-full bg-gradient-to-r from-accent-500 to-accent-600 text-accent-950 font-bold py-4 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg shadow-xl cursor-pointer border-2 border-accent-400/20 hover:border-accent-300/40">
+                      <span className="flex items-center justify-center">
+                        {homeContent.hero.ctaText}
+                        <svg
+                          className="ml-2 w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M7 17l9.2-9.2M16.2 7.8v8.4m0-8.4H7.8"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </Link>
+                </div>
+                <div ref={ctaButton2Ref} className="w-full">
+                  <Link href={homeContent.hero.ctaLink2} className="block">
+                    <button className="w-full bg-gradient-to-r from-accent-500 to-accent-600 text-accent-950 font-bold py-4 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg shadow-xl cursor-pointer border-2 border-accent-400/20 hover:border-accent-300/40">
+                      <span className="flex items-center justify-center">
+                        {homeContent.hero.ctaText2}
+                        <svg
+                          className="ml-2 w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M7 17l9.2-9.2M16.2 7.8v8.4m0-8.4H7.8"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

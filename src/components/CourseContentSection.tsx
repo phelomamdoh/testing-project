@@ -1,8 +1,18 @@
 "use client";
 
-import { content } from "@/content";
+interface CourseContent {
+  title: string;
+  modules: string[];
+  ctaText: string;
+}
 
-export default function CourseContentSection() {
+interface CourseContentSectionProps {
+  courseContent: CourseContent;
+}
+
+export default function CourseContentSection({
+  courseContent,
+}: CourseContentSectionProps) {
   return (
     <section className="py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 text-white relative overflow-hidden">
       {/* Background pattern */}
@@ -13,12 +23,12 @@ export default function CourseContentSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 fade-in">
-            {content.courseContent.title}
+            {courseContent.title}
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {content.courseContent.modules.map((module, index) => (
+          {courseContent.modules.map((module, index) => (
             <div key={index} className="fade-in group">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 border border-white/20">
                 <div className="flex items-start space-x-4">
@@ -37,7 +47,7 @@ export default function CourseContentSection() {
         {/* Call to action */}
         <div className="text-center mt-16 fade-in">
           <div className="inline-block bg-accent-500 text-accent-950 px-8 py-4 rounded-full font-bold text-lg transform hover:scale-105 transition-transform duration-300 shadow-xl">
-            8 Hours of transformational Content
+            {courseContent.ctaText}
           </div>
         </div>
       </div>

@@ -3,9 +3,21 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
-import { content } from "@/content";
 
-export default function HeroSection() {
+interface HeroContent {
+  title: string;
+  subtitle: string;
+  description: string;
+  sessionDetails: string;
+  catchphrase: string;
+  catchphraseSubtitle: string;
+}
+
+interface HeroSectionProps {
+  heroContent: HeroContent;
+}
+
+export default function HeroSection({ heroContent }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -59,14 +71,14 @@ export default function HeroSection() {
           ref={titleRef}
           className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight"
         >
-          {content.hero.title}
+          {heroContent.title}
         </h1>
 
         <p
           ref={subtitleRef}
           className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 font-medium"
         >
-          {content.hero.subtitle}
+          {heroContent.subtitle}
         </p>
 
         <div className="fade-in space-y-6 mb-8">
@@ -89,7 +101,7 @@ export default function HeroSection() {
             </div>
             <div className="bg-gradient-to-r from-accent-300 to-yellow-300 bg-clip-text text-transparent">
               <p className="text-xl md:text-3xl font-bold tracking-wide">
-                {content.hero.description}
+                {heroContent.description}
               </p>
             </div>
           </div>
@@ -110,7 +122,7 @@ export default function HeroSection() {
               />
             </svg>
             <span className="text-sm md:text-base text-white/90 font-medium">
-              {content.hero.sessionDetails}
+              {heroContent.sessionDetails}
             </span>
           </div>
         </div>
@@ -119,10 +131,10 @@ export default function HeroSection() {
         <div className="fade-in mb-12 space-y-6">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 leading-tight">
-              {content.hero.catchphrase}
+              {heroContent.catchphrase}
             </h2>
             <p className="text-xl md:text-2xl text-white/90 font-medium italic">
-              {content.hero.catchphraseSubtitle}
+              {heroContent.catchphraseSubtitle}
             </p>
           </div>
         </div>

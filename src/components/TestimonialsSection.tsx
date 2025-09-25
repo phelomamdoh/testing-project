@@ -1,19 +1,33 @@
 "use client";
 
-import { content } from "@/content";
+interface Testimonial {
+  quote: string;
+  author: string;
+}
 
-export default function TestimonialsSection() {
+interface TestimonialsContent {
+  title: string;
+  items: Testimonial[];
+}
+
+interface TestimonialsSectionProps {
+  testimonialsContent: TestimonialsContent;
+}
+
+export default function TestimonialsSection({
+  testimonialsContent,
+}: TestimonialsSectionProps) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-neutral-900 mb-6 fade-in">
-            {content.testimonials.title}
+            {testimonialsContent.title}
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {content.testimonials.items.map((testimonial, index) => (
+          {testimonialsContent.items.map((testimonial, index) => (
             <div key={index} className="fade-in">
               <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                 {/* Quote decoration */}
