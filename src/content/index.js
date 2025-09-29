@@ -309,7 +309,7 @@ export const sharedContent = {
   masterClasses: {
     title: "Masterclasses",
     subtitle:
-      "Exclusive live training programs designed to transform your mindset and unlock your potential",
+      "Exclusive online programs designed to transform your mindset and unlock your potential",
     items: [
       {
         title: "The Happiness Code",

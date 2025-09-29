@@ -14,8 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+  title: "Sherife AbdelMessih - Bestselling Author & Entrepreneur",
   description:
     "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
   keywords:

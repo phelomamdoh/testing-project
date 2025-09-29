@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import Footer from "@/components/Footer";
 import AwardsSection from "@/components/AwardsSection";
 import MasterClassesSection from "@/components/MasterClassesSection";
+import BrevoNewsletterForm from "@/components/BrevoNewsletterForm";
 import { content, homeContent } from "@/content";
 
 export default function Home() {
@@ -259,6 +260,15 @@ export default function Home() {
                 </a>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-accent-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-center">
+            <BrevoNewsletterForm />
           </div>
         </div>
       </section>

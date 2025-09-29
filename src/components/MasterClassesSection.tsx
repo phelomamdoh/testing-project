@@ -63,7 +63,7 @@ const MasterClassesSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {masterClasses.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+          <p className="text-2xl text-gray-600 max-w-3xl mx-auto mb-6">
             {masterClasses.subtitle}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
