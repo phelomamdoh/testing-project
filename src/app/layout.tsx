@@ -27,8 +27,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon-180x180.svg",
   },
   openGraph: {
-    title:
-      "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+    title: "Sherife AbdelMessih - Bestselling Author & Entrepreneur",
     description:
       "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
     type: "website",
@@ -36,8 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Sherife AbdelMessih - Bestselling Author & Life Transformation Expert",
+    title: "Sherife AbdelMessih - Bestselling Author & Entrepreneur",
     description:
       "Join bestselling author Sherife AbdelMessih for transformative masterclass series including The Happiness Code and The S8 Method. Unlock your potential with science-backed frameworks.",
   },

@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import AwardsSection from "@/components/AwardsSection";
 import MasterClassesSection from "@/components/MasterClassesSection";
 import BrevoNewsletterForm from "@/components/BrevoNewsletterForm";
+import SpeakingMediaInquiriesSection from "@/components/SpeakingMediaInquiriesSection";
 import { content, homeContent } from "@/content";
 
 export default function Home() {
@@ -263,6 +264,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Speaking & Media Inquiries Section */}
+      <SpeakingMediaInquiriesSection content={content.speakingMedia} />
 
       {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-accent-50">

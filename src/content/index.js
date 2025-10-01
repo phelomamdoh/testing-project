@@ -390,6 +390,54 @@ export const sharedContent = {
     position: "MIT Dean of Admissions",
   },
 
+  // Speaking & Media Inquiries
+  speakingMedia: {
+    title: "Speaking & Media Inquiries",
+    buttonText: "Speaking & Media Inquiries",
+    options: [
+      {
+        id: "speaking",
+        title: "Invitation to speak at an event",
+        description: "Request Sherife as a keynote speaker for your event",
+        icon: "microphone",
+      },
+      {
+        id: "media",
+        title: "Media or interview inquiries",
+        description: "Request an interview or media appearance",
+        icon: "camera",
+      },
+    ],
+    form: {
+      fields: {
+        name: {
+          label: "Name",
+          placeholder: "Enter your full name",
+          type: "text",
+          required: true,
+        },
+        email: {
+          label: "Email",
+          placeholder: "Enter your email address",
+          type: "email",
+          required: true,
+        },
+        mobile: {
+          label: "Phone Number",
+          placeholder: "Enter your phone number",
+          type: "tel",
+          required: true,
+        },
+      },
+      submitButton: "Submit Inquiry",
+    },
+    successMessage: {
+      title: "Thank you for your inquiry!",
+      content:
+        "We have received your request and will get back to you as soon as possible.",
+    },
+  },
+
   // Footer
   footer: {
     copyright: "Sherife AbdelMessih. All rights reserved.",
