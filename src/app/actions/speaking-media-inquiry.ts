@@ -4,10 +4,22 @@ import nodemailer from "nodemailer";
 import { google } from "googleapis";
 
 interface InquiryData {
-  name: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
-  mobile: string;
+  phone?: string;
   inquiryType: string;
+  // Speaking event fields
+  eventType?: string;
+  eventLocation?: string;
+  company?: string;
+  topic?: string;
+  audienceSize?: string;
+  eventDate?: string;
+  budget?: string;
+  additionalInfo?: string;
+  // Media inquiry fields
+  mediaType?: string;
 }
 
 interface InquiryResult {
@@ -58,6 +70,11 @@ const getUserConfirmationEmail = (data: InquiryData) => {
       ? "Invitation to speak at an event"
       : "Media or interview inquiries";
 
+  const fullName =
+    data.firstName && data.lastName
+      ? `${data.firstName} ${data.lastName}`
+      : "there";
+
   return {
     subject: "Your Speaking & Media Inquiry - Confirmation",
     html: `
@@ -77,7 +94,7 @@ const getUserConfirmationEmail = (data: InquiryData) => {
             </div>
 
             <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
-              <h2 style="margin: 0 0 10px 0; font-size: 24px;">Thank You, ${data.name}!</h2>
+              <h2 style="margin: 0 0 10px 0; font-size: 24px;">Thank You, ${fullName}!</h2>
               <p style="margin: 0; font-size: 18px;">We've received your inquiry</p>
             </div>
 
@@ -88,18 +105,40 @@ const getUserConfirmationEmail = (data: InquiryData) => {
                   <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569;">Inquiry Type:</td>
                   <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${inquiryTypeDisplay}</td>
                 </tr>
+                ${
+                  data.firstName
+                    ? `
                 <tr>
                   <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569;">Name:</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${data.name}</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${fullName}</td>
                 </tr>
+                `
+                    : ""
+                }
                 <tr>
                   <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569;">Email:</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${data.email}</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${
+                    data.email
+                  }</td>
                 </tr>
                 <tr>
                   <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569;">Phone:</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${data.mobile}</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${
+                    data.phone
+                  }</td>
                 </tr>
+                ${
+                  data.eventType
+                    ? `
+                <tr>
+                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569;">Event Type:</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; color: #64748b;">${
+                    data.eventType === "inPerson" ? "In Person" : "Virtual"
+                  }</td>
+                </tr>
+                `
+                    : ""
+                }
               </table>
             </div>
 
@@ -132,6 +171,11 @@ const getAdminNotificationEmail = (data: InquiryData) => {
       ? "Invitation to speak at an event"
       : "Media or interview inquiries";
 
+  const fullName =
+    data.firstName && data.lastName
+      ? `${data.firstName} ${data.lastName}`
+      : "N/A";
+
   return {
     subject: `New Speaking & Media Inquiry - ${inquiryTypeDisplay}`,
     html: `
@@ -162,12 +206,16 @@ const getAdminNotificationEmail = (data: InquiryData) => {
                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Inquiry Type:</td>
                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${inquiryTypeDisplay}</td>
                 </tr>
+                ${
+                  data.firstName
+                    ? `
                 <tr>
                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Name:</td>
-                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${
-                    data.name
-                  }</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${fullName}</td>
                 </tr>
+                `
+                    : ""
+                }
                 <tr>
                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Email:</td>
                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">
@@ -179,15 +227,110 @@ const getAdminNotificationEmail = (data: InquiryData) => {
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 15px; font-weight: bold; color: #475569; background-color: #f1f5f9;">Phone:</td>
-                  <td style="padding: 15px; color: #1e293b;">
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Phone:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">
                     <a href="tel:${
-                      data.mobile
+                      data.phone
                     }" style="color: #2563eb; text-decoration: none;">${
-      data.mobile
+      data.phone
     }</a>
                   </td>
                 </tr>
+                 ${
+                   data.mediaType
+                     ? `
+                 <tr>
+                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Media Type:</td>
+                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${
+                     data.mediaType.charAt(0).toUpperCase() +
+                     data.mediaType.slice(1)
+                   }</td>
+                 </tr>
+                 `
+                     : ""
+                 }
+                 ${
+                   data.eventType
+                     ? `
+                 <tr>
+                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Event Format:</td>
+                   <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${
+                     data.eventType === "inPerson" ? "In Person" : "Virtual"
+                   }</td>
+                 </tr>
+                 `
+                     : ""
+                 }
+                ${
+                  data.eventLocation
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Event Location:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.eventLocation}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.company
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Company:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.company}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.topic
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Topic:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.topic}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.audienceSize
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Audience Size:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.audienceSize}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.eventDate
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Event Date:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.eventDate}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.budget
+                    ? `
+                <tr>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #475569; background-color: #f1f5f9;">Budget:</td>
+                  <td style="padding: 15px; border-bottom: 1px solid #e2e8f0; color: #1e293b;">${data.budget}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  data.additionalInfo
+                    ? `
+                <tr>
+                  <td style="padding: 15px; font-weight: bold; color: #475569; background-color: #f1f5f9; vertical-align: top;">Additional Info:</td>
+                  <td style="padding: 15px; color: #1e293b;">${data.additionalInfo}</td>
+                </tr>
+                `
+                    : ""
+                }
               </table>
             </div>
 
@@ -227,14 +370,34 @@ const addToGoogleSheets = async (data: InquiryData) => {
         ? "Invitation to speak at an event"
         : "Media or interview inquiries";
 
-    // Prepare the row data
+    const fullName =
+      data.firstName && data.lastName
+        ? `${data.firstName} ${data.lastName}`
+        : "";
+
+    // Prepare the row data - adjust based on inquiry type
     const values = [
       [
         new Date().toISOString(), // Timestamp
         inquiryTypeDisplay, // Inquiry Type
-        data.name,
-        data.email,
-        data.mobile,
+        fullName, // Name
+        data.email, // Email
+        data.phone || "", // Phone
+        data.mediaType
+          ? data.mediaType.charAt(0).toUpperCase() + data.mediaType.slice(1)
+          : "", // Media Type (for media inquiries)
+        data.eventType
+          ? data.eventType === "inPerson"
+            ? "In Person"
+            : "Virtual"
+          : "", // Event Format
+        data.eventLocation || "", // Event Location (only for in-person)
+        data.company || "", // Company (for speaking)
+        data.topic || "", // Topic (for speaking)
+        data.audienceSize || "", // Audience Size
+        data.eventDate || "", // Event Date (for speaking)
+        data.budget || "", // Budget (for speaking)
+        data.additionalInfo || "", // Additional Info
         "Pending", // Status
         new Date().toLocaleDateString(), // Inquiry Date
       ],
@@ -243,7 +406,7 @@ const addToGoogleSheets = async (data: InquiryData) => {
     // Append the data to the sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Sheet1!A:G",
+      range: "Sheet1!A:P", // Updated range to include all columns
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values,
@@ -290,22 +453,29 @@ export async function submitSpeakingMediaInquiry(
   try {
     // Extract data from form
     const inquiryData: InquiryData = {
-      name: formData.get("name") as string,
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
       email: formData.get("email") as string,
-      mobile: formData.get("mobile") as string,
+      phone: formData.get("phone") as string,
       inquiryType: formData.get("inquiryType") as string,
+      // Speaking event fields
+      eventType: formData.get("eventType") as string,
+      eventLocation: formData.get("eventLocation") as string,
+      company: formData.get("company") as string,
+      topic: formData.get("topic") as string,
+      audienceSize: formData.get("audienceSize") as string,
+      eventDate: formData.get("eventDate") as string,
+      budget: formData.get("budget") as string,
+      additionalInfo: formData.get("additionalInfo") as string,
+      // Media inquiry fields
+      mediaType: formData.get("mediaType") as string,
     };
 
-    // Validate required fields
-    if (
-      !inquiryData.name ||
-      !inquiryData.email ||
-      !inquiryData.mobile ||
-      !inquiryData.inquiryType
-    ) {
+    // Validate required basic fields
+    if (!inquiryData.email || !inquiryData.inquiryType) {
       return {
         success: false,
-        message: "All fields are required",
+        message: "All required fields must be filled",
         error: "Missing required fields",
       };
     }

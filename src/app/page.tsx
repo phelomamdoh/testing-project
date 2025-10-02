@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import AwardsSection from "@/components/AwardsSection";
 import MasterClassesSection from "@/components/MasterClassesSection";
 import BrevoNewsletterForm from "@/components/BrevoNewsletterForm";
-import SpeakingMediaInquiriesSection from "@/components/SpeakingMediaInquiriesSection";
 import { content, homeContent } from "@/content";
 
 export default function Home() {
@@ -266,7 +265,30 @@ export default function Home() {
       </section>
 
       {/* Speaking & Media Inquiries Section */}
-      <SpeakingMediaInquiriesSection content={content.speakingMedia} />
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <Link href="/speaking-media">
+              <button className="inline-flex items-center justify-center bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold py-5 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg">
+                <svg
+                  className="w-6 h-6 mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+                  />
+                </svg>
+                {content.speakingMedia.buttonText}
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-accent-50">

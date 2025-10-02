@@ -115,11 +115,8 @@ export const happinessCodeContent = {
     },
     submitButton: "Register Now",
     successMessage: {
-      title: "Thank you for registering!",
-      content: "Please transfer the program fees to Loay over Instapay.",
-      instapay: "Instapay Number: 01550455588",
-      paymentDetails:
-        "Only 5,000 EGP per month for 3 months. The first monthly payment is due now.",
+      title:
+        "Unfortunately this masterclass series has already started. We will alert you by email as soon as the next round opens up. Thank you and we look forward to having you on board!",
     },
   },
 };
@@ -408,11 +405,17 @@ export const sharedContent = {
         icon: "camera",
       },
     ],
-    form: {
-      fields: {
-        name: {
-          label: "Name",
-          placeholder: "Enter your full name",
+    speakingForm: {
+      basicFields: {
+        firstName: {
+          label: "First Name",
+          placeholder: "Enter your first name",
+          type: "text",
+          required: true,
+        },
+        lastName: {
+          label: "Last Name",
+          placeholder: "Enter your last name",
           type: "text",
           required: true,
         },
@@ -422,14 +425,166 @@ export const sharedContent = {
           type: "email",
           required: true,
         },
-        mobile: {
+        phone: {
           label: "Phone Number",
           placeholder: "Enter your phone number",
           type: "tel",
           required: true,
         },
       },
-      submitButton: "Submit Inquiry",
+      eventTypeOptions: [
+        { value: "inPerson", label: "In Person" },
+        { value: "virtual", label: "Virtual" },
+      ],
+      inPersonFields: {
+        eventLocation: {
+          label: "Event Location",
+          placeholder: "Enter the event location (city, country)",
+          type: "text",
+          required: true,
+        },
+        company: {
+          label: "Company Behind Event",
+          placeholder: "Enter the company or organization name",
+          type: "text",
+          required: true,
+        },
+        topic: {
+          label: "Topic You're Interested in Hearing?",
+          placeholder: "Describe the topic or theme",
+          type: "text",
+          required: true,
+        },
+        audienceSize: {
+          label: "Size of Your Audience, Mailing List, or Number of Attendees",
+          placeholder: "e.g., 100-500 attendees",
+          type: "text",
+          required: true,
+        },
+        eventDate: {
+          label: "Date of Your Launch or Event",
+          placeholder: "Select a date",
+          type: "date",
+          required: true,
+        },
+        budget: {
+          label: "Available Speaking Budget",
+          placeholder: "Enter your budget range",
+          type: "text",
+          required: true,
+        },
+        additionalInfo: {
+          label: "Please Tell Us More About Your Request",
+          placeholder: "Provide any additional details about your event...",
+          type: "textarea",
+          required: true,
+        },
+      },
+      virtualFields: {
+        company: {
+          label: "Company Behind Event",
+          placeholder: "Enter the company or organization name",
+          type: "text",
+          required: true,
+        },
+        topic: {
+          label: "Topic You're Interested in Hearing?",
+          placeholder: "Describe the topic or theme",
+          type: "text",
+          required: true,
+        },
+        audienceSize: {
+          label: "Size of Your Audience, Mailing List, or Number of Attendees",
+          placeholder: "e.g., 100-500 attendees",
+          type: "text",
+          required: true,
+        },
+        eventDate: {
+          label: "Date of Your Launch or Event",
+          placeholder: "Select a date",
+          type: "date",
+          required: true,
+        },
+        budget: {
+          label: "Available Speaking Budget",
+          placeholder: "Enter your budget range",
+          type: "text",
+          required: true,
+        },
+        additionalInfo: {
+          label: "Please Tell Us More About Your Request",
+          placeholder: "Provide any additional details about your event...",
+          type: "textarea",
+          required: true,
+        },
+      },
+      submitButton: "Submit Speaking Request",
+    },
+    mediaForm: {
+      basicFields: {
+        firstName: {
+          label: "First Name",
+          placeholder: "Enter your first name",
+          type: "text",
+          required: true,
+        },
+        lastName: {
+          label: "Last Name",
+          placeholder: "Enter your last name",
+          type: "text",
+          required: true,
+        },
+        email: {
+          label: "Email",
+          placeholder: "Enter your email address",
+          type: "email",
+          required: true,
+        },
+      },
+      mediaTypeOptions: [
+        { value: "podcast", label: "Podcast" },
+        { value: "radio", label: "Radio" },
+        { value: "tv", label: "TV" },
+      ],
+      eventTypeOptions: [
+        { value: "inPerson", label: "In Person" },
+        { value: "virtual", label: "Virtual" },
+      ],
+      inPersonFields: {
+        eventLocation: {
+          label: "Event Location",
+          placeholder: "Enter the event location (city, country)",
+          type: "text",
+          required: true,
+        },
+        audienceSize: {
+          label: "Size of Your Audience, Mailing List, or Number of Attendees",
+          placeholder: "e.g., 100-500 attendees",
+          type: "text",
+          required: true,
+        },
+        additionalInfo: {
+          label: "Please Tell Us More About Your Request",
+          placeholder: "Provide any additional details about your request...",
+          type: "textarea",
+          required: true,
+        },
+      },
+      virtualFields: {
+        audienceSize: {
+          label: "Size of Your Audience, Mailing List, or Number of Attendees",
+          placeholder: "e.g., 100-500 attendees",
+          type: "text",
+          required: true,
+        },
+        additionalInfo: {
+          label: "Please Tell Us More About Your Request",
+          placeholder: "Provide any additional details about your request...",
+          type: "textarea",
+          required: true,
+        },
+      },
+      submitButton: "Submit Media Inquiry",
     },
     successMessage: {
       title: "Thank you for your inquiry!",
