@@ -588,8 +588,7 @@ export const sharedContent = {
     },
     successMessage: {
       title: "Thank you for your inquiry!",
-      content:
-        "We have received your request and will get back to you as soon as possible.",
+      content: "We have received your request. Thank you for your interest!",
     },
   },
 
