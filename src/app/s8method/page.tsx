@@ -49,7 +49,7 @@ export default function S8Method() {
       <MITTestimonialSection />
       <TestimonialsSection testimonialsContent={s8MethodContent.testimonials} />
       <PricingSection pricingContent={s8MethodContent.pricing} />
-      <RegistrationSection registrationContent={s8MethodContent.registration} />
+      {/* <RegistrationSection registrationContent={s8MethodContent.registration} /> */}
       <Footer />
     </main>
   );

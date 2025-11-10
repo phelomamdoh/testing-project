@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -292,9 +293,11 @@ export default function PricingSection({
 
             {/* CTA Button */}
             <div className="p-8 pt-0">
-              <button
-                onClick={scrollToRegistration}
-                className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base sm:text-lg group relative overflow-hidden cursor-pointer"
+              <Link
+                href="https://sherife-s-site-24eb.thinkific.com/products/courses/s8method"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base sm:text-lg group relative overflow-hidden cursor-pointer inline-block text-center"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   {pricingContent.ctaText}
@@ -312,7 +315,7 @@ export default function PricingSection({
                     />
                   </svg>
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* Security Badge */}
