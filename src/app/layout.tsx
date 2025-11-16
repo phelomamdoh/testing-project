@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { sharedContent } from "@/content";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,10 +21,7 @@ export const metadata: Metadata = {
   keywords:
     "Sherife AbdelMessih, happiness, success, personal development, psychology, masterclass, life transformation, bestselling author",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: "/sherif-circle.svg",
     apple: "/apple-icon-180x180.svg",
   },
   openGraph: {
@@ -67,6 +65,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
+        <Header />
         {children}
       </body>
     </html>

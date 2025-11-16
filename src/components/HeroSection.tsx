@@ -53,7 +53,7 @@ export default function HeroSection({ heroContent }: HeroSectionProps) {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <div className="my-8">
+        <div>
           {/* Sherife's professional photo */}
           <div className="w-48 h-48 mx-auto mb-8 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
             <Image
@@ -69,7 +69,7 @@ export default function HeroSection({ heroContent }: HeroSectionProps) {
 
         <h1
           ref={titleRef}
-          className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight"
         >
           {heroContent.title}
         </h1>

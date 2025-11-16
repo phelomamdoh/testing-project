@@ -20,6 +20,7 @@ interface PricingContent {
   features: string[];
   ctaText: string;
   discount: string;
+  link: string;
 }
 
 interface PricingSectionProps {
@@ -294,7 +295,7 @@ export default function PricingSection({
             {/* CTA Button */}
             <div className="p-8 pt-0">
               <Link
-                href="https://sherife-s-site-24eb.thinkific.com/products/courses/s8method"
+                href={pricingContent.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-base sm:text-lg group relative overflow-hidden cursor-pointer inline-block text-center"

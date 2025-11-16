@@ -13,6 +13,30 @@ export const homeContent = {
   },
 };
 
+// Header Content
+export const headerContent = {
+  logo: {
+    text: "Sherife AbdelMessih",
+    link: "/",
+  },
+  navigation: {
+    links: [
+      {
+        text: "The S8 Method",
+        href: "/s8method",
+      },
+      {
+        text: "The Happiness Code",
+        href: "/happinesscode",
+      },
+    ],
+    signIn: {
+      text: "Sign In",
+      href: "https://sherife-s-site-24eb.thinkific.com/users/sign_in",
+    },
+  },
+};
+
 // Happiness Code Page Content
 export const happinessCodeContent = {
   hero: {
@@ -85,6 +109,7 @@ export const happinessCodeContent = {
       "Lifetime access to session recordings",
       "Private community access with fellow participants",
     ],
+    link: "https://sherife-s-site-24eb.thinkific.com/order?ct=b4cea713-a048-4fef-b98e-16a32c529a0e",
     ctaText: "Secure Your Spot Now",
     discount: "75% OFF",
   },
@@ -194,6 +219,7 @@ export const s8MethodContent = {
       "Lifetime access to session recordings",
       "Private community access with fellow participants",
     ],
+    link: "https://sherife-s-site-24eb.thinkific.com/order?ct=b4cea713-a048-4fef-b98e-16a32c529a0e",
     ctaText: "Secure Your Spot Now",
     discount: "90% OFF",
   },
